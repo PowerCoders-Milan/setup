@@ -1,6 +1,6 @@
 # Setup instructions
 
-You will find below the instructions to set up you computer for [Powercoder Web Development Bootcamp](https://powercoders.org/country/italy/).
+You will find below the instructions to set up you computer for [Powercoders Web Development course](https://powercoders.org/country/italy/).
 
 Please **read them carefully and execute all commands in the following order**.
 
@@ -22,6 +22,10 @@ Under **Zoom Client** click the **Download** button.
 Open the file you have just downloaded to install the app.
 
 Open the Zoom app.
+
+If you have a Mac with Apple silicon, [you are asked to install Rosetta](https://support.apple.com/en-us/HT211861). Click Install, then enter your user name and password to allow installation to proceed.
+
+![Install Rosetta](https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/Big-Sur/macos-big-sur-software-update-rosetta-alert.jpg)
 
 If you already have a Zoom account, sign in using your credentials.
 
@@ -49,30 +53,110 @@ Have you signed up to GitHub? If not, [do it right away](https://github.com/join
 ![GitHub picture](images/github_picture.png)
 
 
+## A note about quitting apps on a Mac
+
+Clicking the little red cross in the top left corner of the application window on a Mac **does not really quit it**, it just closes an active window. To quit the application _for real_ either press `Cmd + Q` when the application is active, or navigate to `APP_NAME` -> `Quit` in the menu bar.
+
+![Quit Terminal on macOS](images/macos_quit.png)
+
+During this setup you will be asked to **quit and re-open** applications multiple times, please make sure you do it properly :pray:
+
+## Command Line Tools
+
+Open a new terminal, copy-paste the following command and hit `Enter`:
+
+```bash
+xcode-select --install
+```
+
+If you receive the following message, you can just skip this step and go to next step.
+
+```bash
+# command line tools are already installed, use "Software Update" to install updates
+```
+
+Otherwise, it will open a window asking you if you want to install some software: click on "Install" and wait.
+
+
+![Install xcode-select on macOS](images/macos_xcode_select_install.png)
+
+:heavy_check_mark: If you see the message "The software was installed" then all good :+1:
+
+:x: If the command `xcode-select --install` fails try again: sometimes the Apple servers are overloaded.
+
+:x: If you see the message "Xcode is not currently available from the Software Update server", you need to update the software update catalog:
+
+```bash
+sudo softwareupdate --clear-catalog
+```
+
+Once this is done, you can try to install again.
+
+
+## Homebrew
+
+[Homebrew](http://brew.sh/) is a package manager: it's a software used to install other software from the command line. Let's install it!
+
+Open a terminal and run:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+This will ask for your confirmation (hit `Enter`) and your **macOS user account password** (the one you use to [log in](https://support.apple.com/en-gb/HT202860) when you reboot your Macbook).
+
+:warning: When you type your password, nothing will show up on the screen, **that's normal**. This is a security feature to mask not only your password as a whole but also its length. Just type your password and when you're done, press `Enter`.
+
+:warning: If you see this warning :point_down:, run the two commands in the `Next steps` section to add Homebrew to your PATH:
+
+![macOS Homebrew installation warning](images/macos_homebrew_warning.png)
+
+```bash
+# ⚠️ Only execute these commands if you saw this warning ☝
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
+If you already have Homebrew, it will tell you so, that's fine, go on.
+
+Then install some useful software:
+
+```bash
+brew update
+```
+
+If you get a `/usr/local must be writable` error, just run this:
+
+```bash
+sudo chown -R $USER:admin /usr/local
+brew update
+```
+
+Proceed running the following in the terminal (you can copy / paste all the lines at once).
+
+```bash
+brew upgrade git || brew install git
+brew upgrade gh || brew install gh
+brew upgrade wget || brew install wget
+brew upgrade imagemagick || brew install imagemagick
+brew upgrade jq || brew install jq
+brew upgrade openssl || brew install openssl
+```
+
+
 ## Visual Studio Code
 
 ### Installation
 
 Let's install [Visual Studio Code](https://code.visualstudio.com) text editor.
 
-Copy (`Ctrl` + `C`) the commands below then paste them in your terminal (`Ctrl` + `Shift` + `v`):
+Copy (`Cmd` + `C`) the command below then paste it in your terminal (`Cmd` + `V`):
 
 ```bash
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-rm -f packages.microsoft.gpg
-sudo apt update
-sudo apt install -y code
+brew install --cask visual-studio-code
 ```
 
-These commands will ask for your password: type it in.
-
-:warning: When you type your password, nothing will show up on the screen, **that's normal**. This is a security feature to mask not only your password as a whole but also its length. Just type in your password and when you're done, press `Enter`.
-
-### Launching from the terminal
-
-Now let's launch VS Code from **the terminal**:
+Then launch VS Code by running the following command in your terminal:
 
 ```bash
 code
@@ -118,6 +202,8 @@ Launch VS Code from your terminal by typing `code` and pressing `Enter`.
 
 Click on the little arrow at the bottom of the left bar :point_down:
 
+![VS Code Live Share](images/vscode_live_share.png)
+
 - Click on the "Share" button, then on "GitHub (Sign in using GitHub account)".
 - A popup appears asking you to sign in with GitHub: click on "Allow".
 - You are redirected to a GitHub page in you browser asking you to authorize Visual Studio Code: click on "Continue" then "Authorize github".
@@ -126,53 +212,15 @@ Click on the little arrow at the bottom of the left bar :point_down:
 That's it, you're good to go!
 
 
-## Command line tools
+## macOS Terminal Theme
 
-### Zsh & Git
+Launch a terminal, click on `Terminal > Preferences` and set the "Pro" theme as default profile.
 
-Instead of using the default `bash` [shell](https://en.wikipedia.org/wiki/Shell_(computing)), we will use `zsh`.
+![Set Pro Theme for macOS terminal](images/macos_terminal_pro.png)
 
-We will also use [`git`](https://git-scm.com/), a command line software used for version control.
+In Window tab, set also your **Window Size** to Columns: 200, Rows: 50
 
-Let's install them, along with other useful tools:
-- Open an **Ubuntu terminal**
-- Copy and paste the following commands:
-
-```bash
-sudo apt update
-```
-
-```bash
-sudo apt install -y curl git imagemagick jq unzip vim zsh
-```
-
-These commands will ask for your password: type it in.
-
-:warning: When you type your password, nothing will show up on the screen, **that's normal**. This is a security feature to mask not only your password as a whole but also its length. Just type in your password and when you're done, press `Enter`.
-
-### GitHub CLI installation
-
-Let's now install [GitHub official CLI](https://cli.github.com) (Command Line Interface). It's a software used to interact with your GitHub account via the command line.
-
-In your terminal, copy-paste the following commands and type in your password if asked:
-
-```bash
-sudo apt remove -y gitsome # gh command can conflict with gitsome if already installed
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-sudo apt update
-sudo apt install -y gh
-```
-
-To check that `gh` has been successfully installed on your machine, you can run:
-
-```bash
-gh --version
-```
-
-:heavy_check_mark: If you see `gh version X.Y.Z (YYYY-MM-DD)`, you're good to go :+1:
-
-:x: Otherwise, please **contact a teacher**
+**Quit and restart** your terminal: it should now have a nice black background, easier on the eyes.
 
 
 ## Oh-my-zsh
@@ -293,7 +341,7 @@ gh api user/emails | jq -r '.[].email'
 
 :heavy_check_mark: If you see the list of your registered emails, you can proceed :+1:
 
-:x: If not, please [reauthenticate to GitHub](https://github.com/lewagon/setup/blob/master/ubuntu.md#github-cli) before running this command :point_up: again.
+:x: If not, please [reauthenticate to GitHub](https://github.com/lewagon/setup/blob/master/macos.md#github-cli) before running this command :point_up: again.
 
 ### git installer
 
@@ -310,58 +358,6 @@ cd ~/code/$GITHUB_USERNAME/dotfiles && zsh git_setup.sh
 Please now **reset** your terminal by running:
 
 ```bash
-exec zsh
-```
-
-
-## Disable SSH passphrase prompt
-
-You don't want to be asked for your passphrase every time you communicate with a distant repository. So, you need to add the plugin `ssh-agent` to `oh my zsh`:
-
-First, open the `.zshrc` file:
-
-```bash
-code ~/.zshrc
-```
-
-Then:
-- Spot the line starting with `plugins=`
-- Add `ssh-agent` at the end of the plugins list
-
-The list should look like:
-
-```bash
-plugins=(gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search pyenv ssh-agent)
-```
-
-:heavy_check_mark: Save the `.zshrc` file with `Ctrl` + `S` and close your text editor.
-
-
-## rbenv
-
-Let's install [`rbenv`](https://github.com/sstephenson/rbenv), a software to install and manage `ruby` environments.
-
-First, we need to clean up any previous Ruby installation you might have:
-
-```bash
-rvm implode && sudo rm -rf ~/.rvm
-# If you got "zsh: command not found: rvm", carry on.
-# It means `rvm` is not on your computer, that's what we want!
-rm -rf ~/.rbenv
-```
-
-Then in the terminal, run:
-
-```bash
-sudo apt install -y build-essential tklib zlib1g-dev libssl-dev libffi-dev libxml2 libxml2-dev libxslt1-dev libreadline-dev
-```
-
-```bash
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-```
-
-```bash
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 exec zsh
 ```
 
@@ -435,7 +431,7 @@ In a few weeks, we'll talk about databases and SQL. [SQLite](https://sqlite.org/
 In a terminal, execute the following commands:
 
 ```bash
-sudo apt-get install sqlite3 libsqlite3-dev
+brew install sqlite
 ```
 
 Then run the following command:
@@ -458,34 +454,28 @@ Let's install it now.
 Run the following commands:
 
 ```bash
-sudo apt install -y postgresql postgresql-contrib libpq-dev build-essential
+brew install postgresql
+brew services start postgresql
 ```
+
+Once you've done that, let's check that it worked:
 
 ```bash
-sudo -u postgres psql --command "CREATE ROLE \"`whoami`\" LOGIN createdb superuser;"
+psql -d postgres
 ```
 
-
-## Check-up
-
-Let's check if you successfully installed everything.
-
-In you terminal, run the following command:
+You should you see a new prompt like this one :point_down:
 
 ```bash
-exec zsh
+psql (14.4)
+Type "help" for help.
+
+postgres=#
 ```
 
-Then run:
+:heavy_check_mark: If this is the case, type `\q` then `Enter` to quit this prompt. You're good to go :+1:
 
-```bash
-curl -Ls https://raw.githubusercontent.com/lewagon/setup/master/check.rb > _.rb && ruby _.rb && rm _.rb || rm _.rb
-```
-
-:heavy_check_mark: If you get a green `Awesome! Your computer is now ready!`, then you're good :+1:
-
-:x: If not, **contact a teacher**.
-
+:x: If not, please **ask for a teacher**
 
 
 ## Slack
@@ -494,7 +484,7 @@ curl -Ls https://raw.githubusercontent.com/lewagon/setup/master/check.rb > _.rb 
 
 ### Installation
 
-[Download the Slack app](https://get.slack.help/hc/en-us/articles/212924728-Slack-for-Linux-beta-) and install it.
+[Download the Slack app](https://itunes.apple.com/fr/app/slack/id803453959?mt=12) and install it.
 
 :warning: If you are already using Slack in your browser, please download and install **the desktop app** which is fully featured.
 
@@ -521,49 +511,44 @@ To ensure that everything is working fine for video calls, let's test your camer
 You can also install Slack app on your phone and sign in `powercoders`!
 
 
-## Ubuntu settings
+## macOS settings
 
-### Install video codec H264
+### Security
 
-On our pedagogical platform (Kitt, you'll soon discover it!), we have some videos. By default Firefox on Linux cannot play them as they use an unsupported codec (H264). To get those videos working for you, you need to run this:
+It is mandatory that you protect your session behind a password.If it is not already the case, go to ` > System Preferences > Users & Groups` and change your account password. You should also go to ` > System Preferences > Security > General`. You should require a password `5 seconds` after sleep or screen saver begins.
 
-```bash
-sudo apt install libavcodec-extra -y
-```
+You can also go to ` > System Preferences > Mission Control` and click on the `Hot Corners` button at the bottom left. Choose for the bottom right corner to start the screen saver. That way, when you leave your desk, you can quickly lock you screen by putting your mouse in the bottom right corner. 5 seconds after, your Macbook will be locked and will ask for a password to get back on the session.
 
-### Install useful terminal tools
+### Keyboard
 
-`tree` is a nice tool to visualize a directory tree inside the terminal:
+As you become a programmer, you'll understand that leaving the keyboard takes a lot of time, so you'll want to minimize using the trackpad or the mouse. Here are a few tricks on macOS to help you do that.
 
-`ncdu` is a text-based interface disk utility.
+#### Keyboard speed
 
-`htop` is an interactive process viewer.
+Go to ` > System Preferences > Keyboard`. Set `Key Repeat` to the fastest position (to the right) and `Delay Until Repeat` to the shortest position (to the right).
 
-`tig` is a text-mode interface for `git`.
+#### macOS For hackers
 
-```bash
-sudo apt install tree ncdu htop tig
-```
-
-### Ubuntu inotify
-
-Ubuntu is always tracking changes in your folders and to do this it uses inotify.
-By default the Ubuntu limit is set to 8192 files monitored.
-
-As programming involves a lot of files, we need to raise this limit.
-In your terminal run:
+[Read this script](https://github.com/mathiasbynens/dotfiles/blob/master/.macos) and cherry-pick some stuff you think will suit you. For instance, you can type in the terminal this one:
 
 ```bash
-echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+# Expanding the save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+# Save screenshots to the Desktop (or elsewhere)
+defaults write com.apple.screencapture location "${HOME}/Desktop"
+
+# etc..
 ```
 
 ### Pin apps to your dock
 
-You are going to use most of the apps you've installed today really often. So let's pin them to your dock so that they are just one click away!
+You are going to use most of the apps you've installed today really often. Let's pin them to your dock so that they are just one click away!
 
-To pin an app to your dock, launch the app, right-click on the icon in the dock to bring up the context menu and choose "Add to Favorites".
+To pin an app to your dock, launch the app, right-click on the icon in the taskbar to bring up the context menu and choose "Options" then "Keep in Dock".
 
-![How to pin an app to the dock in Ubuntu](images/ubuntu_dock.png)
 
 You must pin:
 - Your terminal

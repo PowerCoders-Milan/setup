@@ -944,7 +944,7 @@ curl -Ls https://raw.githubusercontent.com/lewagon/setup/master/check.rb > _.rb 
 
 Launch the app and sign in to `powercoders` organization.
 
-Make sure you **upload a profile picture** :warning:
+Make sure you **upload a profile picture** :camera_with_flash:
 
 The idea is that you'll have Slack open all day, so that you can share useful links / ask for help / etc.
 
