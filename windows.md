@@ -813,6 +813,21 @@ Open a new terminal.
 :x: If not, **contact a teacher**.
 
 
+## Platform
+
+Great you almost completed the setup! Now it's time to sign-up into your platform.
+
+:warning: before proceeding, be sure you have a github account. :warning:
+
+Open this webpage [Dashboard](https://www.poco-dashboard.herokuapp.com), you'll see a central white button. Click on *sign in with github*
+
+![Sign In with GitHub](images/sign_in_dashboard.png)
+
+After that will be redirected to your `personal page` and you should se your avatar on the right.
+
+In this page you'll be able to see your daily progress in the exercises.
+
+
 ## Slack
 
 [Slack](https://slack.com/) is a communcation platform pretty popular in the tech industry. You should already be logged in but in case download the app :arrow_down:
