@@ -421,9 +421,9 @@ curl -Ls https://raw.githubusercontent.com/lewagon/setup/master/check.rb > _.rb 
 :x: If not, **contact a teacher**.
 
 
-## Platform
+## Dashborard
 
-Great you almost completed the setup! Now it's time to sign-up into your platform.
+Great you almost completed the setup! Now it's time to sign-up into your dashboard.
 
 :warning: before proceeding, be sure you have a github account. :warning:
 
@@ -435,6 +435,11 @@ After that will be redirected to your `personal page` and you should se your ava
 
 In this page you'll be able to see your daily progress in the exercises.
 
+
+## WeSchool
+
+It's time to log-in into our platform in order to see all the content of bootcamp and videos of the lectures.
+Please check your emails and spot an email from weschool. There will be a link to the platform in it.
 
 ## Slack
 
@@ -473,7 +478,7 @@ You can also install Slack app on your phone and sign in `powercoders`!
 
 ### Install video codec H264
 
-On our pedagogical platform (Kitt, you'll soon discover it!), we have some videos. By default Firefox on Linux cannot play them as they use an unsupported codec (H264). To get those videos working for you, you need to run this:
+On our pedagogical platform we have some videos. By default Firefox on Linux cannot play them as they use an unsupported codec (H264). To get those videos working for you, you need to run this:
 
 ```bash
 sudo apt install libavcodec-extra -y

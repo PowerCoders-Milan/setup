@@ -813,9 +813,9 @@ Open a new terminal.
 :x: If not, **contact a teacher**.
 
 
-## Platform
+## Dashboard
 
-Great you almost completed the setup! Now it's time to sign-up into your platform.
+Great you almost completed the setup! Now it's time to sign-up into your dashboard.
 
 :warning: before proceeding, be sure you have a github account. :warning:
 
@@ -827,6 +827,11 @@ After that will be redirected to your `personal page` and you should se your ava
 
 In this page you'll be able to see your daily progress in the exercises.
 
+
+## WeSchool
+
+It's time to log-in into our platform in order to see all the content of bootcamp and videos of the lectures.
+Please check your emails and spot an email from weschool. There will be a link to the platform in it.
 
 ## Slack
 
