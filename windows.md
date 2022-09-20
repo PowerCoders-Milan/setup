@@ -665,6 +665,17 @@ gh auth status
 
 :x: If not, **contact a teacher**.
 
+## Add Zsh Plugins
+
+Open windows terminal (check that you're in a ubuntu environment)
+
+Run the following command:
+
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
 
 ## Disable SSH passphrase prompt
 
