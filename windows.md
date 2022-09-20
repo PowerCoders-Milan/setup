@@ -669,7 +669,7 @@ gh auth status
 
 Open windows terminal (check that you're in a ubuntu environment)
 
-Run the following command:
+Run the following commands:
 
 ```bash
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions

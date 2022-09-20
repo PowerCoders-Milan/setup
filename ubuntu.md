@@ -248,7 +248,18 @@ gh auth status
 :x: If not, **contact a teacher**.
 
 
-## Disable SSH passphrase prompt
+## Add Zsh Plugins
+
+Open windows terminal (check that you're in a ubuntu environment)
+
+Run the following commands:
+
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+### Disable SSH passphrase prompt
 
 You don't want to be asked for your passphrase every time you communicate with a distant repository. So, you need to add the plugin `ssh-agent` to `oh my zsh`:
 
@@ -269,35 +280,6 @@ plugins=(gitfast last-working-dir common-aliases zsh-syntax-highlighting history
 ```
 
 :heavy_check_mark: Save the `.zshrc` file with `Ctrl` + `S` and close your text editor.
-
-
-## rbenv
-
-Let's install [`rbenv`](https://github.com/sstephenson/rbenv), a software to install and manage `ruby` environments.
-
-First, we need to clean up any previous Ruby installation you might have:
-
-```bash
-rvm implode && sudo rm -rf ~/.rvm
-# If you got "zsh: command not found: rvm", carry on.
-# It means `rvm` is not on your computer, that's what we want!
-rm -rf ~/.rbenv
-```
-
-Then in the terminal, run:
-
-```bash
-sudo apt install -y build-essential tklib zlib1g-dev libssl-dev libffi-dev libxml2 libxml2-dev libxslt1-dev libreadline-dev
-```
-
-```bash
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-```
-
-```bash
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-exec zsh
-```
 
 
 ## Node.js
