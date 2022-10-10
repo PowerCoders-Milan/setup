@@ -323,7 +323,7 @@ At first launch, you will be asked some information:
     - one word
     - lowercase
     - no special characters
-    - for example: `lewagon` or your `firstname`
+    - for example: `powercoders` or your `firstname`
 - Choose a **password**
 - Confirm your password
 
